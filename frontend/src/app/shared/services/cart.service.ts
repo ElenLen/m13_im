@@ -1,0 +1,58 @@
+import {Injectable} from '@angular/core';
+import {count, Observable, Subject, tap} from "rxjs";
+import {environment} from "../../../environments/environment";
+import {HttpClient} from "@angular/common/http";
+import {CartType} from "../../../types/cart.type";
+import {DefaultResponseType} from "../../../types/default-response.type";
+
+@Injectable({
+  providedIn: 'root'
+})
+export class CartService {
+
+  // для корзины колич
+  private count: number = 0;
+  count$: Subject<number> = new Subject<number>();
+
+  constructor(private http: HttpClient) {
+  }
+
+  setCount(count: number) {
+    this.count = count;
+  //   для оповещения всех слушателей
+    this.count$.next(this.count);
+  }
+
+  getCart(): Observable<CartType | DefaultResponseType> {
+    return this.http.get<CartType | DefaultResponseType>(environment.api + 'cart', {withCredentials: true});
+  }
+
+  // получение кол заказа в корзине
+  getCartCount(): Observable<{ count: number } | DefaultResponseType> {
+    return this.http.get<{ count: number } | DefaultResponseType>(environment.api + 'cart/count', {withCredentials: true})
+      .pipe(
+        tap(data => {
+          if (!data.hasOwnProperty("error")) {
+            this.setCount((data as { count: number }).count);
+          }
+        })
+      );
+  }
+
+  // запрос на обновление карзины
+  updateCart(productId: string, quantity: number): Observable<CartType | DefaultResponseType> {
+    return this.http.post<CartType | DefaultResponseType>(environment.api + 'cart', {productId, quantity}, {withCredentials: true})
+      .pipe(
+        tap(data => {
+          if (!data.hasOwnProperty("count")) {
+            let count = 0;
+            (data as CartType).items.forEach(item => {
+              count += item.quantity;
+            });
+
+            this.setCount(count);
+          }
+        })
+      );
+  }
+}
