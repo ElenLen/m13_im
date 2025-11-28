@@ -41,7 +41,7 @@ export class HeaderComponent implements OnInit {
         debounceTime(500),
       )
       .subscribe((value) => {
-        //   проверяем что введено более 2х символов, тогда отправлем запрос на бэк
+        //   проверяем что введено более 2х символов, тогда отправляем запрос на бэк
         if (value && value.length > 2) {
           this.productService.searchProducts(value)
             .subscribe((data: ProductType[]) => {
@@ -56,6 +56,19 @@ export class HeaderComponent implements OnInit {
 
     this.authService.isLogged$.subscribe((isLoggedIn: boolean) => {
       this.isLogged = isLoggedIn;
+
+      if (this.isLogged) {
+        this.cartService.getCartCount()
+          .subscribe((data: { count: number } | DefaultResponseType) => {
+            if ((data as DefaultResponseType).error !== undefined) {
+              throw new Error((data as DefaultResponseType).message);
+            }
+            this.count = (data as { count: number }).count;
+          });
+
+      } else {
+        this.count = 0;
+      }
     });
 
     this.cartService.getCartCount()
@@ -63,7 +76,6 @@ export class HeaderComponent implements OnInit {
         if ((data as DefaultResponseType).error !== undefined) {
           throw new Error((data as DefaultResponseType).message);
         }
-
         this.count = (data as { count: number }).count;
       });
 
@@ -92,22 +104,6 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
-  // changedSearchValue(newValue: string) {
-  //   this.searchValue = newValue;
-  //
-  // //   проверяем что введено более 2х символов, тогда отправлем запрос на бэк
-  //   if (this.searchValue && this.searchValue.length > 2) {
-  //     this.productService.searchProducts(this.searchValue)
-  //       .subscribe((data: ProductType[])=> {
-  //         this.products = data;
-  //         // показываем окно найден товаров
-  //         this.showedSearch = true;
-  //       });
-  //   } else {
-  //     this.products = [];
-  //   }
-  // }
-
   selectProduct(url: string) {
     this.router.navigate(['/product/' + url]);
     // чистим стр поиска
@@ -119,7 +115,7 @@ export class HeaderComponent implements OnInit {
 //   для отслеживания клика на стр
   @HostListener('document:click', ['$event'])
   click(event: Event) {
-    //   проверим если сожердит текст в наимен класса
+    //   проверим если содержит текст в наименовании класса
     if (this.showedSearch && (event.target as HTMLElement).className.indexOf('search-product') === -1) {
       this.showedSearch = false;
     }

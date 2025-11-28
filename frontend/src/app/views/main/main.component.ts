@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ProductService} from "../../shared/services/product.service";
 import {ProductType} from "../../../types/product.type";
 import {OwlOptions} from "ngx-owl-carousel-o";
@@ -99,11 +99,12 @@ export class MainComponent implements OnInit {
     },
   ]
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService) {
+  }
 
   ngOnInit(): void {
     this.productService.getBestProducts()
-      .subscribe((data: ProductType[])=> {
+      .subscribe((data: ProductType[]) => {
         this.products = data;
       })
   }

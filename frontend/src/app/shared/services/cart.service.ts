@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {count, Observable, Subject, tap} from "rxjs";
+import {Observable, Subject, tap} from "rxjs";
 import {environment} from "../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {CartType} from "../../../types/cart.type";
@@ -19,7 +19,7 @@ export class CartService {
 
   setCount(count: number) {
     this.count = count;
-  //   для оповещения всех слушателей
+    //   для оповещения всех слушателей
     this.count$.next(this.count);
   }
 
@@ -29,7 +29,9 @@ export class CartService {
 
   // получение кол заказа в корзине
   getCartCount(): Observable<{ count: number } | DefaultResponseType> {
-    return this.http.get<{ count: number } | DefaultResponseType>(environment.api + 'cart/count', {withCredentials: true})
+    return this.http.get<{
+      count: number
+    } | DefaultResponseType>(environment.api + 'cart/count', {withCredentials: true})
       .pipe(
         tap(data => {
           if (!data.hasOwnProperty("error")) {
@@ -39,9 +41,12 @@ export class CartService {
       );
   }
 
-  // запрос на обновление карзины
+  // запрос на обновление корзины
   updateCart(productId: string, quantity: number): Observable<CartType | DefaultResponseType> {
-    return this.http.post<CartType | DefaultResponseType>(environment.api + 'cart', {productId, quantity}, {withCredentials: true})
+    return this.http.post<CartType | DefaultResponseType>(environment.api + 'cart', {
+      productId,
+      quantity
+    }, {withCredentials: true})
       .pipe(
         tap(data => {
           if (!data.hasOwnProperty("count")) {

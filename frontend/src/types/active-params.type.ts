@@ -1,4 +1,4 @@
-export type ActiveParamsType =  {
+export type ActiveParamsType = {
   types: string[],
   heightFrom?: string,
   heightTo?: string,

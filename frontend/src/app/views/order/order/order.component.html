@@ -118,10 +118,10 @@
                    && (orderForm.get('comment')?.dirty
                    || orderForm.get('comment')?.touched) ? 'red' : ''}"
                       formControlName="comment"
-                      placeholder="Оставьте свой комментарий..."></textarea>
+                      placeholder="Оставьте свой комментарий...">
+            </textarea>
           </div>
         </div>
-
       </div>
 
       <div class="order-details">
@@ -147,7 +147,6 @@
             <div class="order-details-info-item-text">Итоговая стоимость:</div>
             <div class="order-details-info-item-data">{{ totalAmount + 10 }} BYN</div>
           </div>
-
         </div>
 
         <button class="button" (click)="createOrder()">Подтвердить заказ</button>

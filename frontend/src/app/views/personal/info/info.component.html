@@ -53,7 +53,7 @@
         </div>
       </div>
 
-      <div class="data-form-block" >
+      <div class="data-form-block">
         <div class="data-form-label">
           Адрес доставки
         </div>
@@ -80,7 +80,6 @@
                  formControlName="apartment">
         </div>
       </div>
-
 
       <div class="data-form-block">
         <div class="data-form-label">
@@ -116,7 +115,9 @@
         </div>
       </div>
 
-      <button class="button" [disabled]="!(userInfoForm.dirty && userInfoForm.valid)" (click)="updateUserInfo()">Сохранить</button>
+      <button class="button" [disabled]="!(userInfoForm.dirty && userInfoForm.valid)" (click)="updateUserInfo()">
+        Сохранить
+      </button>
     </div>
 
   </div>

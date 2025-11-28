@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {Observable} from "rxjs";
-import {ProductType} from "../../../types/product.type";
 import {environment} from "../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {FavoriteType} from "../../../types/favorite.type";
@@ -23,6 +22,6 @@ export class FavoriteService {
   }
 
   addFavorite(productId: string): Observable<FavoriteType | DefaultResponseType> {
-    return this.http.post<FavoriteType | DefaultResponseType>(environment.api + 'favorites',  {productId});
+    return this.http.post<FavoriteType | DefaultResponseType>(environment.api + 'favorites', {productId});
   }
 }

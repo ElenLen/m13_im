@@ -17,8 +17,6 @@
       display: flex;
       justify-content: space-between;
 
-
-
       .order-details {
         width: 422px;
 
@@ -66,7 +64,7 @@
           }
         }
 
-        .button{
+        .button {
           width: 100%;
         }
       }
@@ -75,7 +73,7 @@
 }
 
 .order-popup {
-  padding: 100px 70px 220px ;
+  padding: 100px 70px 220px;
   position: relative;
   text-align: center;
   color: $green-text-color;
@@ -90,7 +88,7 @@
     right: 30px;
   }
 
-  .order-popup-title{
+  .order-popup-title {
     @include head-lora-32;
     margin-bottom: 40px;
   }

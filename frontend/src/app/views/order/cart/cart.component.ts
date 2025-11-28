@@ -6,8 +6,6 @@ import {CartService} from "../../../shared/services/cart.service";
 import {CartType} from "../../../../types/cart.type";
 import {environment} from "../../../../environments/environment";
 import {DefaultResponseType} from "../../../../types/default-response.type";
-import {Router} from "@angular/router";
-import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'cart',
@@ -16,10 +14,8 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 })
 export class CartComponent implements OnInit {
 
-
   constructor(private productService: ProductService,
-              private cartService: CartService,) {
-  }
+              private cartService: CartService,) {  }
 
   extraProducts: ProductType[] = [];
 
@@ -74,15 +70,15 @@ export class CartComponent implements OnInit {
   calculateTotal() {
     this.totalAmount = 0;
     this.totalCount = 0;
-    if (this.cart){
+    if (this.cart) {
       this.cart.items.forEach(item => {
         this.totalAmount += item.quantity * item.product.price;
-        this.totalCount += item.quantity ;
+        this.totalCount += item.quantity;
       });
     }
   }
 
-  updateCount(id:string, count:number) {
+  updateCount(id: string, count: number) {
     if (this.cart) {
       this.cartService.updateCart(id, count)
         .subscribe((data: CartType | DefaultResponseType) => {
@@ -90,7 +86,7 @@ export class CartComponent implements OnInit {
             throw new Error((data as DefaultResponseType).message);
           }
           this.cart = data as CartType;
-        //   пересчитываем
+          //   пересчитываем
           this.calculateTotal();
         })
     }

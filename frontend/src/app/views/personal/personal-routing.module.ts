@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {FavoriteComponent} from "./favorite/favorite.component";
 import {OrdersComponent} from "./orders/orders.component";
 import {InfoComponent} from "./info/info.component";
@@ -14,4 +14,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class PersonalRoutingModule { }
+export class PersonalRoutingModule {
+}

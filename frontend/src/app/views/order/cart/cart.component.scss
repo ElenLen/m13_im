@@ -10,15 +10,15 @@
       @include head-lora-36;
     }
 
-    .cart-empty{
+    .cart-empty {
       margin-top: 20px;
       margin-bottom: 100px;
 
-      div{
+      div {
         font-size: 16px;
       }
 
-      button{
+      button {
         width: 255px;
         margin-top: 10px;
       }
@@ -131,15 +131,15 @@
         }
       }
 
-      .cart-details-actions{
+      .cart-details-actions {
         display: flex;
         align-items: center;
         justify-content: space-between;
 
-        .button{
+        .button {
           width: 234px;
 
-          &.button-transparent{
+          &.button-transparent {
             width: 255px;
             margin-right: 12px;
             color: #6CAC72;

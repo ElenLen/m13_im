@@ -1,8 +1,27 @@
+* {
+  box-sizing: border-box;
+}
+
 html, body {
   margin: 0;
   padding: 0;
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
+  min-height: 100vh;
+}
+
+app-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+cart, app-catalog, app-main, app-login, app-signup, app-info, app-orders, app-order, app-favorite, app-detail {
+  flex: 1 0 auto;
+}
+
+app-footer {
+  flex-shrink: 0; /* Не сжимается */
 }
 
 .container {
@@ -190,11 +209,10 @@ a.button {
 }
 
 //popup
- .mat-dialog-container {
+.mat-dialog-container {
   padding: 0 !important;
 }
 
-.mat-progress-spinner circle, .mat-spinner circle
-{
+.mat-progress-spinner circle, .mat-spinner circle {
   stroke: #648F64;
 }

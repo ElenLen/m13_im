@@ -41,7 +41,7 @@ export class SignupComponent implements OnInit {
               error = (data as DefaultResponseType).message;
             }
 
-            const  loginResponse = data as LoginResponseType;
+            const loginResponse = data as LoginResponseType;
             if (!loginResponse.accessToken
               || !loginResponse.refreshToken
               || !loginResponse.userId) {
@@ -50,7 +50,7 @@ export class SignupComponent implements OnInit {
 
             if (error) {
               this._snackBar.open(error);
-              throw  new Error(error);
+              throw new Error(error);
             }
 
             this.authService.setTokens(loginResponse.accessToken, loginResponse.refreshToken);
@@ -68,5 +68,4 @@ export class SignupComponent implements OnInit {
         })
     }
   }
-
 }

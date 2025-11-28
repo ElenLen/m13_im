@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {CartComponent} from "./cart/cart.component";
 import {OrderComponent} from "./order/order.component";
 
@@ -12,4 +12,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class OrderRoutingModule { }
+export class OrderRoutingModule {
+}

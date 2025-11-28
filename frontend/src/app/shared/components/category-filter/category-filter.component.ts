@@ -52,8 +52,8 @@ export class CategoryFilterComponent implements OnInit {
           this.to = this.activeParams.diameterTo ? +this.activeParams.diameterTo : null;
         }
       } else {
-        if (params['types']){
-          this.activeParams.types = Array.isArray(params['types']) ? params['types'] : params['types'] ;
+        if (params['types']) {
+          this.activeParams.types = Array.isArray(params['types']) ? params['types'] : params['types'];
         }
 
         if (this.categoryWithTypes && this.categoryWithTypes.types
@@ -75,7 +75,6 @@ export class CategoryFilterComponent implements OnInit {
       if (existingTypeInParams && !checked) {
         this.activeParams.types = this.activeParams.types.filter(item => item !== url);
       } else if (!existingTypeInParams && checked) {
-        // this.activeParams.types.push(url);
         this.activeParams.types = [...this.activeParams.types, url];
       }
     } else if (checked) {

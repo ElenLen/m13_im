@@ -46,7 +46,7 @@ export class InfoComponent implements OnInit {
         // заполнение данных пользователя
         const paramsToUpdate = {
           firstName: userInfo.firstName ? userInfo.firstName : '',
-          lastName:  userInfo.lastName ? userInfo.lastName : '',
+          lastName: userInfo.lastName ? userInfo.lastName : '',
           phone: userInfo.phone ? userInfo.phone : '',
           fatherName: userInfo.fatherName ? userInfo.fatherName : '',
           paymentType: userInfo.paymentType ? userInfo.paymentType : PaymentType.cashToCourier,
@@ -57,7 +57,7 @@ export class InfoComponent implements OnInit {
           apartment: userInfo.apartment ? userInfo.apartment : '',
         }
         this.userInfoForm.setValue(paramsToUpdate);
-        if (userInfo.deliveryType){
+        if (userInfo.deliveryType) {
           this.deliveryType = userInfo.deliveryType;
         }
       });
@@ -65,7 +65,6 @@ export class InfoComponent implements OnInit {
 
   changeDeliveryType(deliveryType: DeliveryType) {
     this.deliveryType = deliveryType;
-
     this.userInfoForm.markAsDirty();
   }
 
@@ -112,7 +111,7 @@ export class InfoComponent implements OnInit {
       this.userService.updateUserInfo(paramObject)
         .subscribe({
           next: (data: DefaultResponseType) => {
-            if (data.error){
+            if (data.error) {
               this._snackBar.open(data.message);
               throw new Error(data.message);
             }
@@ -128,7 +127,5 @@ export class InfoComponent implements OnInit {
           }
         });
     }
-
-
   }
 }

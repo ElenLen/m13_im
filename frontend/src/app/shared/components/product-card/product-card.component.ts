@@ -42,6 +42,7 @@ export class ProductCardComponent implements OnInit {
       this.count = this.countInCart;
     }
 
+    // для тестов закомитить
     this.authService.isLogged$.subscribe((isLoggedIn: boolean) => {
       this.isLogged = isLoggedIn;
     });
@@ -114,8 +115,8 @@ export class ProductCardComponent implements OnInit {
     }
   }
 
-  navigate(){
-    if (this.isLight){
+  navigate() {
+    if (this.isLight) {
       this.router.navigate(['/product/' + this.product.url]);
     }
   }

@@ -13,9 +13,8 @@ export class UserService {
   constructor(private http: HttpClient) {
   }
 
-
   updateUserInfo(params: UserInfoType): Observable<DefaultResponseType> {
-    return this.http.post< DefaultResponseType>(environment.api + 'user', params);
+    return this.http.post<DefaultResponseType>(environment.api + 'user', params);
   }
 
   getUserInfo(): Observable<UserInfoType | DefaultResponseType> {

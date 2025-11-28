@@ -6,17 +6,17 @@
   padding-bottom: 110px;
 
   .container {
-    .detail-title{
+    .detail-title {
       @include head-lora-36;
     }
 
-    .detail-product{
+    .detail-product {
       margin-top: 30px;
       margin-bottom: 120px;
       display: flex;
       justify-content: space-between;
 
-      .detail-image{
+      .detail-image {
         width: 528px;
         height: 528px;
         background-size: cover;
@@ -24,29 +24,29 @@
         border-radius: 10px;
       }
 
-      .detail-info{
+      .detail-info {
         width: 602px;
 
-        .detail-info-items{
+        .detail-info-items {
           margin-bottom: 51px;
 
-          .detail-info-item{
+          .detail-info-item {
             padding-top: 20px;
             margin-top: 20px;
             border-top: 1px solid #E7F1E8;
             display: flex;
 
-            &:first-child{
+            &:first-child {
               padding-top: 0;
               margin-top: 0;
               border-top: 0;
             }
 
-            .detail-info-item-text{
+            .detail-info-item-text {
               margin-left: 22px;
               width: 528px;
 
-              .detail-info-item-title{
+              .detail-info-item-title {
                 font-family: 'Montserrat', sans-serif;
                 font-style: normal;
                 font-weight: 500;
@@ -55,7 +55,7 @@
                 margin-bottom: 15px;
               }
 
-              .detail-info-item-description{
+              .detail-info-item-description {
                 font-size: 16px;
                 line-height: 130%;
                 color: $gray-text-color;
@@ -64,50 +64,50 @@
           }
         }
 
-        .detail-info-param{
+        .detail-info-param {
           display: flex;
           align-items: center;
           font-size: 16px;
           margin-top: 12px;
 
-          .detail-info-param-name{
+          .detail-info-param-name {
             font-weight: 500;
             margin-right: 10px;
           }
         }
 
-        .detail-info-params{
+        .detail-info-params {
           display: flex;
           align-items: center;
           justify-content: space-between;
 
-          .detail-info-params-count{
+          .detail-info-params-count {
             display: flex;
             align-items: center;
 
-            span{
+            span {
               font-weight: 500;
               font-size: 16px;
               margin-right: 20px;
             }
           }
 
-          .detail-info-params-price{
+          .detail-info-params-price {
             font-weight: 700;
             font-size: 40px;
             color: #313131;
           }
         }
 
-        .detail-info-actions{
+        .detail-info-actions {
           display: flex;
           align-items: center;
           margin-top: 22px;
 
-          .button{
+          .button {
             width: 290px;
 
-            &.button-transparent{
+            &.button-transparent {
               width: 307px;
               margin-right: 10px;
             }
@@ -116,8 +116,7 @@
       }
     }
 
-    .recommended-products{
-
+    .recommended-products {
     }
   }
 }

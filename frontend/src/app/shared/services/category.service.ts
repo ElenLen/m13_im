@@ -46,12 +46,10 @@ export class CategoryService {
                   }]
               })
             }
-
           })
 
           return array;
         })
-      )
-      ;
+      );
   }
 }

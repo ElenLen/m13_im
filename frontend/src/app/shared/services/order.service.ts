@@ -13,15 +13,13 @@ export class OrderService {
   constructor(private http: HttpClient) {
   }
 
-  // запрос на обновление карзины
+  // запрос на обновление корзины
   createOrder(params: OrderType): Observable<OrderType | DefaultResponseType> {
-    return this.http.post<OrderType | DefaultResponseType>(environment.api + 'orders', params, {withCredentials: true})
-
+    return this.http.post<OrderType | DefaultResponseType>(environment.api + 'orders', params, {withCredentials: true});
   }
 
-  // запрос на заказаов пользователя
+  // запрос на заказов пользователя
   getOrders(): Observable<OrderType[] | DefaultResponseType> {
-    return this.http.get<OrderType[] | DefaultResponseType>(environment.api + 'orders')
-
+    return this.http.get<OrderType[] | DefaultResponseType>(environment.api + 'orders');
   }
 }

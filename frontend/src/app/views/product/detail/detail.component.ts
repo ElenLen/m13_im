@@ -176,8 +176,5 @@ export class DetailComponent implements OnInit {
           this.product.isInFavorites = true;
         });
     }
-
-
   }
-
 }

@@ -138,7 +138,6 @@ export class OrderComponent implements OnInit {
     // для обновления установленных значений
     this.orderForm.get('street')?.updateValueAndValidity();
     this.orderForm.get('house')?.updateValueAndValidity();
-
   }
 
   createOrder() {

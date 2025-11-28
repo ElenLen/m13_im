@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree} from '@angular/router';
+import {Observable} from 'rxjs';
 import {AuthService} from "./auth.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 
@@ -17,7 +17,7 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
     const isLoggedId = this.authService.getIsLoggedId();
-    if (!isLoggedId){
+    if (!isLoggedId) {
       this._snackBar.open('Для доступа необходимо авторизоваться');
     }
 

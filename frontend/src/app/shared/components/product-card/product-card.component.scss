@@ -6,7 +6,7 @@
   box-sizing: border-box;
   position: relative;
 
-  &.is-light{
+  &.is-light {
     height: auto;
     cursor: pointer;
   }
@@ -58,20 +58,18 @@
     }
   }
 
-  .product-card-extra{
+  .product-card-extra {
     margin-top: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-
-
-    .product-card-detail{
+    .product-card-detail {
       display: flex;
       align-items: center;
       text-decoration: none;
 
-      span{
+      span {
         margin-left: 8px;
         color: #9AA89B;
         font-size: 16px;
