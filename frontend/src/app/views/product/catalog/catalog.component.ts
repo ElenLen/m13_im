@@ -193,8 +193,9 @@ export class CatalogComponent implements OnInit {
 //   для отслеживания клика вне сортировки
   @HostListener('document:click', ['$event'])
   click(event: Event) {
+    const target = event.target as HTMLElement;
     //  сворачиваем блок с классом catalog-sorting
-    if (this.sortingOpen && (event.target as HTMLElement).className.indexOf('catalog-sorting') === -1) {
+    if (this.sortingOpen && target && typeof target.className === 'string' && target.className.indexOf('catalog-sorting') === -1) {
       this.sortingOpen = false;
     }
   }
